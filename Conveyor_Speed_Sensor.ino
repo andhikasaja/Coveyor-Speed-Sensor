@@ -6,7 +6,7 @@ unsigned long end_time = 0;
 int steps=0;
 float steps_old=0;
 float temp=0;
-float rps=0;
+float rpm=0;
 
 void setup() 
 {
@@ -16,8 +16,6 @@ void setup()
   lcd.setCursor(0,0);
   lcd.print(" STEPS - 0");
   lcd.setCursor(0,1);
-  lcd.print(" RPS   - 0.00");
-}
  
 void loop()
 {
@@ -36,8 +34,8 @@ void loop()
  }
     temp=steps-steps_old;
     steps_old=steps;
-    rps=(temp/20);
+    rpm=(temp/20);
     lcd.setCursor(9,1);
-    lcd.print(rps);
+    lcd.print(rpm);
     lcd.print("   ");
 }
