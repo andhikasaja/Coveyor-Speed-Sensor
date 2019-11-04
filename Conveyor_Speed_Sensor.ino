@@ -16,9 +16,8 @@ void setup()
   lcd.setCursor(0,0);
   lcd.print(" STEPS - 0");
   lcd.setCursor(0,1);
- 
-void loop()
-{
+} 
+void loop() {
  start_time=millis();
  end_time=start_time+1000;
  while(millis()<end_time)
@@ -38,4 +37,10 @@ void loop()
     lcd.setCursor(9,1);
     lcd.print(rpm);
     lcd.print("   ");
+
+if( rpm < 60) {
+  
+    lcd.setCursor(0,0);
+    lcd.print("Beban Konveyor Terlalu Berat!");
+  }
 }
