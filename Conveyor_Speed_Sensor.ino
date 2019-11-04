@@ -1,5 +1,11 @@
-#include <LiquidCrystal.h>
-LiquidCrystal lcd(7, 6, 5, 4, 3, 2);
+#include <Wire.h>
+#include <LCD.h>
+#include <LiquidCrystal_I2C.h>
+
+
+LiquidCrystal_I2C lcd(0x27,2,1,0,4,5,6,7); // 0x27 = alamat I2C modul
+
+//LiquidCrystal lcd(7, 6, 5, 4, 3, 2);
 int sensor = 11;
 unsigned long start_time = 0;
 unsigned long end_time = 0;
