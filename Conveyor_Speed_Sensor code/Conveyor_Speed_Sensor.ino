@@ -6,7 +6,7 @@
 LiquidCrystal_I2C lcd(0x27,2,1,0,4,5,6,7); // 0x27 = alamat I2C modul
 
 //LiquidCrystal lcd(7, 6, 5, 4, 3, 2);
-int sensor = 11;
+int sensor = 11; //ganti D4 di nodemcu
 unsigned long start_time = 0;
 unsigned long end_time = 0;
 int steps=0;
@@ -20,7 +20,7 @@ void setup()
   lcd.begin(16, 2);
   pinMode(sensor,INPUT_PULLUP);
   lcd.setCursor(0,0);
-  lcd.print(" STEPS - 0");
+  Serial.print(" STEPS - 0");
   lcd.setCursor(0,1);
 } 
 void loop() {
@@ -34,19 +34,19 @@ void loop() {
     while(digitalRead(sensor));
    }
    lcd.setCursor(9,0);
-   lcd.print(steps);
-   lcd.print("   ");
+   Serial.println(steps);
+   Serial.print("   ");
  }
     temp=steps-steps_old;
     steps_old=steps;
     rpm=(temp/20);
     lcd.setCursor(9,1);
-    lcd.print(rpm);
-    lcd.print("   ");
+    Serial.println(rpm);
+    Serial.print("   ");
 
 if( rpm < 60) {
   
     lcd.setCursor(0,0);
-    lcd.print("Beban Konveyor Terlalu Berat!");
+    Serial.print("Beban Konveyor Terlalu Berat!");
   }
 }
